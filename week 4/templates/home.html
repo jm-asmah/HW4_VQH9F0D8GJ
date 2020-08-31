@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Covid Anchor</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <nav>
+      <a href="#" class="logo">Covid Anchor</a>
+    </nav>
+    <div class="container">
+      <div class="world">
+        <h1>World</h1>
+        <hr />
+        <p><strong>Cases: </strong> <span>{{countries[0].cases}}</span></p>
+        <p>
+          <strong>Recoveries: </strong> <span>{{countries[0].recovered}}</span>
+        </p>
+        <p><strong>Death: </strong> <span>{{countries[0].deaths}}</span></p>
+      </div>
+      <div class="cards">
+        {% for country in countries[1:] %}
+        <div class="card">
+          <h2>{{country.country}}</h2>
+          <hr />
+          <p><strong>Cases: </strong> <span>{{ country.cases}}</span></p>
+          <p>
+            <strong>Recoveries: </strong> <span>{{ country.recovered}}</span>
+          </p>
+          <p><strong>Death: </strong> <span>{{ country.deaths }}</span></p>
+          <a href="#" class="btn">Details</a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>
